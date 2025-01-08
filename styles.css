@@ -1,0 +1,281 @@
+/* Base Styles */
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@100..900&family=Bonheur+Royale&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Fredericka+the+Great&display=swap");
+body ::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #11005c;
+  background-image: url(images/e74a4b32-efed-4fb5-81ec-f8415819a091.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Animations */
+@keyframes elongate {
+  from {
+    width: 0;
+    visibility: visible;
+  }
+  to {
+    width: 20vw;
+    visibility: visible;
+  }
+}
+@keyframes retract {
+  from {
+    width: 20vw;
+    visibility: visible;
+  }
+  to {
+    width: 0;
+    visibility: hidden;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-300%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes moveUp {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideSideways {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Initial Message Styles */
+.welcomeMessage {
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  width: 60vw;
+  height: 80vh;
+}
+
+.message, .messageEnd {
+  font-size: 8.5em;
+  font-family: "Big Shoulders Inline Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  animation: slideIn 2s ease-in-out;
+  color: #f1f2eb;
+}
+
+.messageEnd {
+  animation: fadeIn 3s ease-out reverse;
+}
+
+.highlight {
+  color: rgb(128, 164, 237);
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.line, .lineRetract {
+  width: 0;
+  border-color: #f1f2eb;
+  visibility: hidden;
+  animation: elongate 1s ease-in 2s forwards;
+}
+
+.lineRetract {
+  width: 20vw;
+  visibility: visible;
+  animation: retract 1.5s ease-in forwards;
+}
+
+.slogan, .sloganEnd {
+  margin-top: 10vh;
+  opacity: 0;
+  animation: zoomIn 1s ease-out 2s forwards;
+  color: #80a4ed;
+  font-family: "Edu AU VIC WA NT Arrows", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2em;
+}
+
+.sloganEnd {
+  opacity: 1;
+  animation: fadeIn 3s ease-out reverse;
+}
+
+/* Hidden class to hide elements */
+.hidden {
+  display: none;
+}
+
+.mainHub {
+  display: flex;
+  gap: 20px;
+  padding: 2em;
+  margin-top: 10vh;
+  background-color: hsla(69, 21%, 94%, 0.5);
+  width: 80vw;
+  height: 75vh;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px hsla(358, 68%, 16%, 0.1);
+  animation: moveUp 2s ease-in-out;
+}
+
+.textSection {
+  text-transform: uppercase;
+  text-align: center;
+  color: #164256;
+  height: 80%;
+  width: 50%;
+  font-size: 3.7rem;
+  font-family: "Big Shoulders Inline Text", serif;
+  font-optical-sizing: auto;
+  font-weight: black 900;
+  font-style: normal;
+  margin: auto;
+  animation: slideIn 3s ease-in-out;
+}
+
+.textSection p {
+  text-transform: capitalize;
+  color: #f1f2eb;
+  font-size: 2.5rem;
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.formSection {
+  display: flex;
+  color: #164256;
+  width: 30%;
+  margin: auto;
+  animation: slideSideways 4.5s ease reverse;
+}
+
+.form {
+  background-color: #f1f2eb;
+  width: 90%;
+  height: 40vh;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.form header {
+  transform: translateX(-3%);
+  font-size: 3.5em;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #80a4ed;
+  text-transform: uppercase;
+}
+
+.form label {
+  display: block;
+  transform: translateX(-2%);
+  margin-bottom: 8px;
+  margin-top: 7px;
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+
+.form input[type=text],
+.form input[type=email] {
+  width: 98%;
+  height: 50px;
+  padding: 15px;
+  margin-bottom: 40px;
+  border: 1px solid #847979;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}
+
+.form input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form input[type=submit] {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #80a4ed;
+  border: none;
+  border-radius: 6px;
+  color: #f1f2eb;
+  font-size: 1.5rem;
+  font-family: "Big Shoulders Inline Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form input[type=submit]:hover {
+  background-color: #164256;
+}/*# sourceMappingURL=styles.css.map */
