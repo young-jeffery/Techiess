@@ -1,4 +1,9 @@
 /* Base Styles */
+html,
+body {
+  overflow: hidden;
+}
+
 body ::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
@@ -7,8 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #11005c;
+  background-color: #310fc9;
   background-image: url(images/e74a4b32-efed-4fb5-81ec-f8415819a091.jpg);
   background-position: center;
   background-size: cover;
@@ -24,6 +28,7 @@ body {
 
 // Fonts [Big Shoulders Inline, Edu Au Vic Wa Nt, Fredericka the Great, Bonheur Royal & Dancing Script]
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@100..900&family=Bonheur+Royale&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Fredericka+the+Great&display=swap");
+
 /* Animations */
 
 @keyframes elongate {
@@ -32,14 +37,14 @@ body {
     visibility: visible;
   }
   to {
-    width: 20vw;
+    width: 30vw;
     visibility: visible;
   }
 }
 
 @keyframes retract {
   from {
-    width: 20vw;
+    width: 30vw;
     visibility: visible;
   }
   to {
@@ -102,16 +107,14 @@ body {
 }
 
 /* Initial Message Styles */
-.welcomeMessage {
-  font-size: 20px;
-  font-weight: bolder;
-  text-align: center;
-  width: 60vw;
-  height: 80vh;
-}
 
+.welcomeMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .message {
-  font-size: 8.5em;
   font-family: "Big Shoulders Inline Text", serif;
   font-optical-sizing: auto;
   font-weight: 800;
@@ -122,7 +125,7 @@ body {
 }
 .messageEnd {
   @extend .message;
-  animation: fadeIn 3s ease-out reverse;
+  animation: fadeIn 3s ease-in-out reverse;
 }
 
 .highlight {
@@ -146,15 +149,14 @@ body {
 }
 
 .slogan {
-  margin-top: 10vh;
+  margin-top: 8vh;
   opacity: 0;
   animation: zoomIn 1s ease-out 2s forwards;
-  color: #80a4edff;
+  color: #f1f2ebff;
   font-family: "Edu AU VIC WA NT Arrows", serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-size: 2em;
 }
 .sloganEnd {
   @extend .slogan;
@@ -167,10 +169,11 @@ body {
   display: none;
 }
 
-// main-content styles
+// Main-Content Styles
 
 .mainHub {
   display: flex;
+  flex-direction: row;
   gap: 20px;
   padding: 2em;
   margin-top: 10vh;
@@ -183,6 +186,10 @@ body {
 }
 
 .textSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-transform: uppercase;
   text-align: center;
   color: #164256ff;
@@ -194,7 +201,7 @@ body {
   font-weight: black 900;
   font-style: normal;
   margin: auto;
-  animation: slideIn 3s ease-in-out;
+  animation: moveUp 3s ease-in-out;
 }
 .textSection p {
   text-transform: capitalize;
@@ -208,8 +215,11 @@ body {
 
 .formSection {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #164256ff;
-  width: 30%;
+  width: 25vw;
   margin: auto;
   animation: slideSideways 4.5s ease reverse;
 }
@@ -223,7 +233,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 .form header {
-  transform: translateX(-3%);
   font-size: 3.5em;
   font-family: "Fredericka the Great", serif;
   font-weight: 400;
@@ -279,4 +288,316 @@ body {
 }
 .form input[type="submit"]:hover {
   background-color: #164256ff;
+}
+
+/* Responsiveness */
+
+// 4k Display
+@media (min-width: 2560px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 60vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 17ch;
+  }
+
+  .slogan {
+    font-size: 3ch;
+  }
+
+  .form input[type="submit"] {
+    margin-top: 10vh;
+  }
+}
+
+// Large Laptop
+@media (min-width: 1440px) and (max-width: 2559px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 60vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 10ch;
+  }
+
+  .slogan {
+    font-size: 2ch;
+  }
+
+  .textSection {
+    font-size: 3rem;
+  }
+
+  .form {
+    height: 50vh;
+  }
+  .form header {
+    font-size: 2.8rem;
+  }
+  .form input[type="submit"] {
+    margin-top: 5vh;
+  }
+}
+
+// Laptop
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 80vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 8ch;
+  }
+
+  .slogan {
+    font-size: 2ch;
+  }
+
+  .textSection {
+    font-size: 2rem;
+  }
+  .textSection p {
+    font-size: 2rem;
+  }
+
+  .mainHub {
+    width: 90vw;
+  }
+
+  .form header {
+    font-size: 2rem;
+  }
+  .form label {
+    font-size: 1.2rem;
+  }
+  .form input[type="text"],
+  .form input[type="email"],
+  .form input[type="submit"] {
+    height: 13%;
+  }
+}
+
+// Tab
+@media (min-width: 768px) and (max-width: 1023px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 8%0vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 7ch;
+  }
+
+  .slogan {
+    font-size: 2ch;
+  }
+
+  .mainHub {
+    flex-direction: column;
+    height: 90vh;
+    margin: auto;
+  }
+  .textSection {
+    font-size: 1.2rem;
+    width: 80%;
+    animation: moveUp 3s;
+  }
+  .textSection h1 {
+    font-size: 2.5em;
+  }
+  .textSection p {
+    font-size: 1.3em;
+  }
+
+  .form {
+    margin: 0;
+    width: 50vw;
+  }
+  .form header {
+    font-size: 2.5rem;
+  }
+  .form label {
+    font-size: 1.5rem;
+  }
+  .form input[type=submit] {
+    margin: 0;
+  }
+  .formSection {
+    animation: moveUp 4.5s ease;
+  }
+}
+
+// Large Mobile
+@media (min-width: 425px) and (max-width: 767px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 60vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 4ch;
+  }
+
+  .slogan {
+    font-size: 1.5ch;
+  }
+
+  .mainHub {
+    flex-direction: column;
+    height: 90vh;
+    margin: auto;
+  }
+  .textSection {
+    font-size: 1.2rem;
+    width: 80%;
+    animation: moveUp 3s;
+  }
+  .textSection h1 {
+    font-size: 2.5em;
+  }
+  .textSection p {
+    font-size: 1.3em;
+  }
+
+  .form {
+    margin: 0;
+    width: 65vw;
+  }
+  .form header {
+    font-size: 2.5rem;
+  }
+  .form label {
+    font-size: 1.5rem;
+  }
+  .form input[type=submit] {
+    margin: 0;
+  }
+  .formSection {
+    animation: moveUp 4.5s ease;
+  }
+}
+
+// Medium Mobile
+@media (min-width: 375px) and (max-width: 424px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 60vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 3ch;
+  }
+
+  .slogan {
+    font-size: 1.3ch;
+  }
+
+  .mainHub {
+    flex-direction: column;
+    height: 90vh;
+    margin: auto;
+  }
+  .textSection {
+    font-size: 1.2rem;
+    width: 80%;
+    animation: moveUp 3s;
+  }
+  .textSection h1 {
+    font-size: 2.5em;
+  }
+  .textSection p {
+    font-size: 1.3em;
+  }
+
+  .form {
+    margin: 0;
+    width: 65vw;
+  }
+  .form header {
+    font-size: 2rem;
+  }
+  .form label {
+    font-size: 1.2rem;
+  }
+  .form input[type=submit] {
+    margin: 0;
+  }
+  .formSection {
+    animation: moveUp 4.5s ease;
+  }
+}
+
+// Small Mobile
+@media (min-width: 320px) and (max-width: 374px) {
+  .welcomeMessage {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 60vw;
+    height: 80vh;
+  }
+
+  .message {
+    font-size: 2.5ch;
+  }
+
+  .slogan {
+    font-size: 1.1ch;
+  }
+
+  .mainHub {
+    flex-direction: column;
+    height: 90vh;
+    margin: auto;
+  }
+  .textSection {
+    font-size: 1.2rem;
+    width: 80%;
+    animation: moveUp 3s;
+  }
+  .textSection h1 {
+    font-size: 2.5em;
+  }
+  .textSection p {
+    font-size: 1.3em;
+  }
+
+  .form {
+    margin: 0;
+    width: 65vw;
+  }
+  .form header {
+    font-size: 1.8rem;
+  }
+  .form label {
+    font-size: 1rem;
+  }
+  .form input[type=submit] {
+    margin: 0;
+  }
+  .formSection {
+    animation: moveUp 4.5s ease;
+  }
 }

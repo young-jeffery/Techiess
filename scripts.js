@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initialMessage.classList.add("hidden");
     // Show the main content
     mainContent.classList.remove("hidden");
-    mainContent.classList.add('mainHub')
+    mainContent.classList.add('mainHub');
   }, displayTime);
 });
 
